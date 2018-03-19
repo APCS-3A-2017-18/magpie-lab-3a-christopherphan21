@@ -43,7 +43,16 @@ public class Magpie3
     || findKeyword(statement, "sister") >= 0
     || findKeyword(statement, "brother") >= 0)
   {
-   response = "Tell me more about your family.";
+   response = "Your family seems interesting.";
+  }
+  else if (findKeyword(statement, "dog") >= 0 || findKeyword(statement, "cat") >= 0) {
+    response = "Tell me more about your pets";
+  }
+  else if (findKeyword(statement, "Mr.") >= 0) {
+    response = "He sounds like a good teacher.";
+  }
+  else if (findKeyword(statement, "Mrs.") >= 0 || findKeyword(statement, "Ms.") >= 0) {
+    response = "She sounds like a good teacher.";
   }
   else
   {
@@ -144,11 +153,11 @@ public class Magpie3
   */
  private String getRandomResponse()
  {
-  final int NUMBER_OF_RESPONSES = 4;
+  final int NUMBER_OF_RESPONSES = 6;
   double r = Math.random();
-  int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
+  int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
   String response = "";
-
+  
   if (whichResponse == 0)
   {
    response = "Interesting, tell me more.";
@@ -165,12 +174,13 @@ public class Magpie3
   {
    response = "You don't say.";
   }
-
+  else if (whichResponse == 4)
+  {
+    response = "Interesting.";
+  }
+  else if (whichResponse == 5)
+    response = "Ok.";
   return response;
- }
- //does nothing
- public void DoNothing (int dud) {
-   //does nothing
  }
 
 }
